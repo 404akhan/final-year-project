@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<style type="text/css">
+			table {
+			    table-layout: fixed;
+			    width: 100%;
+			}
+
+			table td {
+			    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+			    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+			}
+		</style>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <script
+	  src="https://code.jquery.com/jquery-3.3.1.js"
+	  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	  crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body>
+
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="#">JASA</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div style="background-color: rgb(250, 250, 250);">
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="jumbotron"">
+			<div class="container">
+				<h1 class="display-3">Hello!</h1>
+				<h3 class="display-6">This is JASA fyp group's project.</h3>
+				<p>We do sentiment analysis on entities from the social media (Twitter, Reddit...). We do clustering of entities for user purposes.</p>
+				<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+			</div>
+		</div>
+
+
+		<!--Div that will hold the pie chart-->
+		<div align="center" style="background-color: rgb(250, 250, 250);">
+			<div class="myContainer" style="width:90%;">
+				<div class="row">
+					<div>
+						<div class="form-inline">
+							<div class="form-group" style="margin-left: 20px">
+								<label for="entity">Entity</label>
+								<input type="text" class="form-control" id="entity" placeholder="trump/reebok/adidas" value="trump">
+							</div>
+							<div class="form-group" style="margin-left: 20px">
+								<label for="year">Year</label>
+									<select class="form-control" id="year">
+									<option selected="selected">2018</option>
+									<option>2017</option>
+									<option>2016</option>
+								</select>
+							</div>
+							<div class="form-group" style="margin-left: 20px">
+								<label for="month">Month</label>
+									<select class="form-control" id="month">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+
+									<option>7</option>
+									<option>8</option>
+									<option selected="selected">9</option>
+									
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+							</div>
+							<div id="search-button" class="btn btn-primary" style="margin-left: 20px">Search</div>
+						</div>
+					</div>
+				</div>
+				<dir class="row">
+					<h6>Currently, data available for trump, adidas, reebok. For 2018 year and 7, 8, 9 months.</h4>
+				</dir>
+
+				<div class="row" style="margin-top: 70px;">
+					<div class="col-md-5">
+						<div id="chart_div" style="width:100%; height:1500"></div>
+					</div>
+
+					<div class="col-md-1"></div>
+					<div class="col-md-6">
+						<table class="table" style="margin-top: 25px;" id="commentsTable">
+							<thead>
+								<tr>
+									<th style="width: 10%">No.</th>
+									<th style="width: 45%">Positive Comments</th>
+									<th style="width: 45%">Negative Comments</th>
+								</tr>
+							</thead>
+							<tbody id="tbodyid">
+								<tr>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript" src="./scripts/script1.js"></script>
+	<script type="text/javascript">
+		$( "#search-button" ).click(function() {
+			var entity = $("#entity").val();
+			var year = $("#year").val();
+			var month = $("#month").val();
+
+			drawChart2(entity, year, month);
+		});
+	</script>
+  </body>
+</html>
